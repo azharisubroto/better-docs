@@ -2,7 +2,7 @@ import React from 'react'
 
 import brace from 'brace'
 import AceEditor from 'react-ace'
-import Frame, { FrameContextConsumer } from 'react-frame-component'
+// import Frame, { FrameContextConsumer } from 'react-frame-component'
 
 import 'brace/mode/jsx'
 import 'brace/theme/monokai'
@@ -105,23 +105,10 @@ class Wrapper extends React.Component {
     const { component, height, showEditor } = this.state
     return (
       <div>
-        <Frame
-          className="component-wrapper"
-          ref={this.iframeRef}
-          style={{width: '100%', height }}
-          onLoad={this.computeHeight()}
-        >
-          <link type="text/css" rel="stylesheet" href="./build/entry.css" />
-          <FrameContextConsumer>
-            {
-              frameContext => (
-                <ComponentRenderer frameContext={frameContext}>
-                  {component}
-                </ComponentRenderer>
-              )
-            }
-          </FrameContextConsumer>
-        </Frame>
+        <ComponentRenderer>
+          {component}
+        </ComponentRenderer>
+        
         <div className="bd__button">
           <a href="#" onClick={this.toggleEditor}>Modify Example Code</a>
         </div>
