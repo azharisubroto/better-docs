@@ -105,6 +105,7 @@ class Wrapper extends React.Component {
     const { component, height, showEditor } = this.state
     return (
       <div>
+        <link type="text/css" rel="stylesheet" href="./build/entry.css" />
         <ComponentRenderer>
           {component}
         </ComponentRenderer>
