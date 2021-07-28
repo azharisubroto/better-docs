@@ -2,6 +2,16 @@
 var data = obj;
 var self = this;
 ?>
+
+<?js if (data.component) { ?>
+    <h3>Example<?js= data.examples.length > 1? 's':'' ?></h3>
+    <?js= this.partial('examples.tmpl', data) ?>
+    <p></p>
+<?js } ?>
+
+<div class=name>
+    <span class="tag">Constructor</span>
+</div>
 <?js if (kind === 'event' && data.type && data.type.names) {?>
     <p class="method-parameter is-pulled-right">
         <label>Type: </label>
@@ -165,7 +175,7 @@ var self = this;
     </div>
 <?js} ?>
 
-<?js if (data.examples && examples.length) { ?>
+<?js if (!data.component && data.examples && examples.length) { ?>
     <h5>Example<?js= examples.length > 1? 's':'' ?></h5>
     <?js= this.partial('examples.tmpl', data) ?>
 <?js } ?>
